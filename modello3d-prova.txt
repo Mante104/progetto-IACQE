@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube Example</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            cursor: grab;
+        }
+        
+        .scene {
+            perspective: 1000px;
+        }
+        
+        .cube {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg);
+            transition: transform 0.2s ease-out;
+        }
+        
+        .face {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 0, 0, 0.8);
+            border: 1px solid #ccc;
+        }
+        
+        .front  { transform: rotateY(  0deg) translateZ(50px); }
+        .back   { transform: rotateY(180deg) translateZ(50px); }
+        .left   { transform: rotateY(-90deg) translateZ(50px); }
+        .right  { transform: rotateY( 90deg) translateZ(50px); }
+        .top    { transform: rotateX( 90deg) translateZ(50px); }
+        .bottom { transform: rotateX(-90deg) translateZ(50px); }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <div class="cube" id="cube">
+            <div class="face front">Front</div>
+            <div class="face back">Back</div>
+            <div class="face left">Left</div>
+            <div class="face right">Right</div>
+            <div class="face top">Top</div>
+            <div class="face bottom">Bottom</div>
+        </div>
+    </div>
+
+    <script>
+        let isDragging = false;
+        let startX, startY;
+        let currentRotationY = 0;
+        let currentRotationX = 0;
+        let cube = document.getElementById('cube');
+
+        document.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            document.body.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            document.body.style.cursor = 'grab';
+            cube.style.transition = 'transform 1s ease-out';
+            cube.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            currentRotationX = 0;
+            currentRotationY = 0;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                cube.style.transition = 'none';
+                const deltaX = e.clientX - startX;
+                const deltaY = startY - e.clientY; // Inverti il senso per la rotazione verticale
+
+                currentRotationY += deltaX * 0.3;
+                currentRotationX += deltaY * 0.15;
+                
+                // Limita la rotazione verticale a un massimo di ±15 gradi
+                if (currentRotationX > 15) currentRotationX = 15;
+                if (currentRotationX < -15) currentRotationX = -15;
+
+                cube.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
+                
+                startX = e.clientX;
+                startY = e.clientY;
+            }
+        });
+    </script>
+</body>
+</html>
