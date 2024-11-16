@@ -7,6 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     </head>
 
     <header id="header">
@@ -33,50 +36,136 @@
                 <div class="carousel-container">
                     <div class="carousel">
                         <div class="carousel-images">
-                            <img src="esterno basso.jpg" class="active">
-                            <img src="ufficio.jpg">
-                            <img src="quadro 2.jpg">
-                            <img src="officina 2.jpg">
-                        </div>
-        
-                        <div class="carousel-indicators">
-                            <span class="indicator active" data-index="0"></span>
-                            <span class="indicator" data-index="1"></span>
-                            <span class="indicator" data-index="2"></span>
-                            <span class="indicator" data-index="3"></span>
-                        </div>
+                                <img src="esterno basso.jpg" class="active">
+                                <img src="ufficio.jpg">
+                                <img src="quadro 2.jpg">
+                                <img src="officina 2.jpg">
+                            </div>
+                            <div class="carousel-indicators">
+                                <span class="indicator active" data-index="0"></span>
+                                <span class="indicator" data-index="1"></span>
+                                <span class="indicator" data-index="2"></span>
+                                <span class="indicator" data-index="3"></span>
+                            </div>
+                            <!-- Aggiungi le frecce qui -->
+                            <div class="carousel-arrow left-arrow" data-direction="left">❮</div>
+                            <div class="carousel-arrow right-arrow" data-direction="right">❯</div>
+                        </div>                                      
                     </div>
+
+
+                <div class="content-container">
+                    <div class="content">
+                        Clicca sul nostro biglietto da visita e scansiona il <b>QR Code</b> così <br> da poter metterti in contatto con un membro del nostro <br> staff per un preventivo
+                    </div>                    
+                </div>
+
+
+                <div class="scene-container">
+                    <div class="scene" onclick="biglietto('biglietto-poste.png')">
+                        <div class="card">
+                            <div class="shadow"></div>
+                            <div class="face front"></div>
+                            <div class="face back"></div>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="content-container">
+                    <div class="content">
+                        Una volta prenotato un appuntamento vieni a trovarci per <br> discutere della commissione siamo a <br> <b>Via Lado D'Iseo 31 26900 Lodi LO </b><br> aperti dal Lunedì al Venerdì <br>dalle <b>08:30</b> alle <b>17:00</b>
+                    </div>                    
+                </div>
+
+                <div class="map-container">
+                    <div id="map"></div>
                 </div>
             </div>
 
 
-            <div id="im2-content" class="hide"> <!--div di servizi-->
-                    2
-            </div>
 
+            <div id="im2-content" class="hide"> <!--div di servizi-->
+                
+                <div class="img-container">
+                    <img src="quadro 3.jpg">
+                </div>
+
+                <div class="content-container">
+                    <div class="content">
+                        Nel corso degli anni abbiamo acquisito le conoscenze e la capacità per specializzarci nella realizzazione di quadri elettrici di varie tipologie:<br>
+                        - montaggio ed <b>assemblaggio</b> quadri MT / BT<br>
+                        - lavorazione <b>barratura</b> in rame<br>
+                        - quadri <b>comando</b> e <b>controllo</b> BT (PCC)<br>
+                        - quadri di comando e MCC a cassetti <b>estraibili</b> per impianti navali<br>
+                        - quadri <b>distribuzione</b> modulari BT<br>
+                        - quadri di <b>automazione</b> con PLC<br>
+                        - <b>collaudi funzionali</b><br>
+                        - progettazione e stesura schemi in <b>AUTOCAD</b>
+                    </div>
+                </div>
+            </div>
+            
 
             <div id="im3-content" class="hide"> <!--div di chi siamo-->
-                3
+                <div class="img-container">
+                    <img src="ufficio.jpg">
+                </div>
+                <div class="content-container">
+                    <div class="content">
+                        Fondata nel 1969 come impresa individuale per cablaggio e assemblaggio di quadri elettrici, la <b>I.A.C.Q.E</b> (Impresa Artigiana Cablaggio Quadri Elettrici) è riuscita ad ampliare con gli anni le tipologie di lavorazione acquisendo il know-how necessario per stanziarsi sul mercato con <b>professionalità</b> e <b>competenza</b>, stringendo collaborazioni con alcuni tra i maggiori capisaldi del settore.<br>
+                        In considerazione della rilevanza e delle priorità degli aspetti tecnici ed umani, la I.A.C.Q.E. sas pone particolare attenzione alle <b>risorse umane</b>, alla loro <b>professionalità</b>, alla <b>qualità</b> dei materiali, dei componenti e dei servizi approvvigionati, tutto nel rispetto delle leggi nazionali e delle norme tecniche CEI in vigore.<br>
+                        L’azienda ha la propria sede a <b>Lodi</b> in prossimità dell’uscita della tangenziale su di una superficie di <b>1200mq coperti</b> e con un personale composto complessivamente da <b>10 addetti</b> tra tecnici, operai ed impiegati.
+                    </div>
+                </div>
             </div>
-
-
+            
             <div id="im4-content" class="hide"> <!--div di certificazioni-->
-                4
+                <div class="img-container">
+                    <img src="certificazione ISO.jpg">
+                </div>
+                <div class="content-container">
+                    <div class="content">
+                        Con lo scopo di assicurare un elevato <b>standard qualitativo</b> del servizio, la nostra impresa ha ottenuto nel corso del 2002 la <b>certificazione</b> del proprio sistema di qualità <b>UNI EN ISO 9002:9004</b> a cura dell’ente <b>MOODY</b>.<br>
+                        Inoltre, con il preciso intento di perseguire gli obiettivi strategici fissati dalla Direzione Aziendale per il <b>miglioramento continuo</b> e per la <b>soddisfazione del cliente</b>, abbiamo adeguato nel corso del 2003 il nostro sistema di qualità alla nuova filosofia ISO denominata <b>“vision 2000”</b> e successivamente abbiamo ottenuto la certificazione <b>UNI EN ISO 9001:2015</b> con l'ente certificatore <b>LLC</b>.
+                    </div>
+                </div>
             </div>
+            
         </div>
+
 
     </body>
 
 
 <footer>
-    <div class="footer-table">
-        <div class="footer-div"><div class="img"></div><span>Indirizzo</span><br><div class="info">Via Lado D'Iseo, 31 26900 Lodi, LO</div></div>
-        <div class="footer-div"><div class="img"></div><span>Contatti</span></div>
-        <div class="footer-div"><div class="img"></div><span>Orari</span></div>
-    </div>
+    <table class="footer-table">
+        <tr>
+            <td>
+                <div class="intestazione">Indirizzo</div> <br>
+                <div>
+                    <a href="https://maps.app.goo.gl/5GiWkAWe7yhTX4AD6" target="_blank">Via Lado D'Iseo <br> 31 26900 Lodi LO</a>
+                </div>
+            </td>
+            <td>
+                <div class="intestazione">Contatti</div> <br>
+                Le nostre Mail <br>
+                Lorenzo Cremaschi: tecnico@iacqe.com <br>
+                Paola Cremaschi: amministrazione@iacqe.com <br>
+                Mail Generale: info@iacqe.com <br>
+                Pec: iacqe@pec.com <br>
+                Telefono <br> +39 0371 42 51 47
+            </td>
+            <td>
+                <div class="intestazione">Orari</div> <br>
+                Lunedì-Venerdì <br>
+                Dalle 8:30 alle 17:00
+            </td>
+        </tr>
+    </table>
+
 
     <div class="separator">
-        I.A.C.Q.E Company | P.Iva IT06103110158 
+        I.A.C.Q.E Company |  P.Iva <span id="Piva" onclick="copyText('IT06103110158')">IT06103110158</span>
     </div>
 <!--         <section id="Tabella" class="Tabella-footer">
                 <ul class="contatti info">

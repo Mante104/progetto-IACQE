@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Calibri, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     transition: height 0.4s ease;
 }
 
@@ -21,10 +21,32 @@
     display: none;
 }
 
+/* Per impedire la selezione del testo */
+*{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}
+
+/* Per impedire il grabbing delle immagini */
+*{
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
+}
+
+#Piva:hover{
+    cursor: pointer;
 }
 
 .fade-in.visible{
@@ -112,7 +134,7 @@ header {
     padding: 50px 0;
 }
 
-.carousel {
+.carousel{
     position: relative;
     width: 100%;
     height: 60vh;
@@ -120,14 +142,14 @@ header {
 }
 
 .carousel-images {
-    display: flex;
+    display: contents;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-images img {
     min-width: 100%;
     height: 100%;
-    object-fit: scale-down;
+    object-fit: fill;
     display: none;
 }
 
@@ -142,6 +164,26 @@ header {
     transform: translateX(-50%);
     display: flex;
 }
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1; /* Aggiungi questa linea */
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
 
 .indicator {
     margin: 5px;
@@ -160,53 +202,33 @@ header {
 footer{
     background-color: var(--tema2);
     width: 100%;
+    margin-top: 100px;
 }
 
-.footer-table {
-    display: flex;
-    width: 100%;
-    height: 40vh;
-    background-color: var(--tema2);
-    color: var(--temaBianco);
-    text-align: center;
-}
-
-.footer-div .img{
-    width: 100%;
-    height: 154px;
-    background-color: transparent;
-}
-
-.footer-div:first-child .img{
-    width: 100%;
-    height: 154px;
-    background-image: url(logo.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    transform: scale(0.5);
-}
-
-.footer-table span{
-    font-size: 26px;
-    font-weight: normal;
-    color: var(--temaBianco);
-}
-
-.footer-table .info{
-    font-size: 16px;
-    flex-wrap: wrap;
-    width: 50%;
-    display: inline-flex;
-}
-
-.footer-table .footer-div {
-    width: 30%;
-    height: 100%;
-    background-color: var(--tema2);
-}
-
-.footer-table .footer-div:first-child, .footer-table .footer-div:last-child{
+.footer-table{
+    width: 60%;
     margin: auto;
+    padding: 30px 0;
+    color: var(--temaBianco);
+    font-size: 16px;
+    table-layout: fixed;
+}
+
+.footer-table td {
+    width: 30%;
+    vertical-align: top;
+}
+
+.footer-table a{
+    color: inherit;
+}
+
+.footer-table a:hover{
+    text-decoration: none;
+}
+
+.intestazione{
+    font-size: 26px;
 }
 
 .separator{
@@ -216,7 +238,7 @@ footer{
     padding: 10px;
     background-color: var(--tema2);
     text-align: center;
-    font-size: 18px;
+    font-size: 14px;
     color: var(--tema3);
 }
 
@@ -225,5 +247,150 @@ footer{
 }
 
 .show{
+    display: block;
+}
+
+
+.mes {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: var(--temaBianco);
+    border-radius: 10px;
+    box-shadow: 5px 5px 100px 0px #000000;
+    font-size: 16px;
+    display: none;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    text-align: center;
+  }
+
+
+  .map-container {
+    width: 70%;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px; /* Aggiungi il padding qui */
+    margin: 0 auto; /* Centra la mappa */
+    position: relative;
+    box-sizing: border-box; /* Include il padding nella larghezza e altezza */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+
+  .scene-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    margin: 0;
+    padding: 70px;
+}
+  
+.scene {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+}
+.card {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    position: relative;
+}
+.animated {
+    animation: rotateCard 20s linear infinite;
+}
+.shadow {
+    position: absolute;
+    top: 110%; /* Distanziamento verso il basso */
+    left: 50%;
+    width: 120%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(8px); /* Sfocatura dell'ombra */
+    z-index: -1; /* Posiziona l'ombra dietro alla carta */
+}
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+.front {
+    background-image: url('biglietto-ante.png');
+    background-size: cover;
+    background-position: center;
+}
+.back {
+    background-image: url('biglietto-poste.png');
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+@keyframes rotateCard {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Aggiungi questa parte al tuo CSS */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.content-container {
+    width: 100%;
+    padding: 10px;
+    height: 30vh;
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Questo centrerà il contenuto anche orizzontalmente */
+}
+
+.content {
+    padding: 20px;
+    width: 70%;
+    margin: auto;
+    background-color: transparent;
+    text-align: center;
+    border-top: 2px solid var(--tema5);
+    border-bottom: 2px solid var(--tema5);
+    box-shadow: 
+        0 -4px 6px -4px rgba(0, 0, 0, 0.4), /* Ombra sfocata in alto con meno intensità */
+        0 4px 6px -4px rgba(0, 0, 0, 0.4);  /* Ombra sfocata in basso con meno intensità */
+}
+
+.img-container {
+    width: 60%;
+    margin: auto;
+    padding: 50px 0; /* Padding verticale di 50px */
+}
+
+.img-container img {
+    width: 100%;
+    height: auto; /* L'immagine si adatta allo spazio disponibile */
     display: block;
 }
