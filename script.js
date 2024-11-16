@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         indicators[currentIndex].classList.add('active');
     }
 
-    setInterval(showNextImage, 1500);
+    setInterval(showNextImage, 3500);
 
     indicators.forEach(indicator => {
         indicator.addEventListener('click', function() {
