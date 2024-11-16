@@ -17,10 +17,6 @@
     --temaSep: #47454e;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 /* Per impedire la selezione del testo */
 *{
     user-select: none;
@@ -364,7 +360,7 @@ footer{
     width: 100%;
     padding: 10px;
     height: 30vh;
-    margin-top: 70px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center; /* Questo centrerà il contenuto anche orizzontalmente */
@@ -386,11 +382,13 @@ footer{
 .img-container {
     width: 60%;
     margin: auto;
-    padding: 50px 0; /* Padding verticale di 50px */
+    padding: 0px 0; /* Padding verticale di 50px */
+    transform: scale(0.8);
 }
 
 .img-container img {
     width: 100%;
     height: auto; /* L'immagine si adatta allo spazio disponibile */
     display: block;
+    transform: scale(1);
 }

@@ -80,7 +80,8 @@ window.onload = function() {
     }, 1000); // 1s
 
     var map = L.map('map', {
-        zoomControl: false
+        zoomControl: false,
+        scrollWheelZoom: false
     }).setView([45.31036932338235, 9.512629269714429], 17);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
