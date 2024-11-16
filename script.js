@@ -62,6 +62,8 @@ function indexMenu(id) {
 
 // Esegue il clic iniziale sulla prima immagine al caricamento della pagina
 window.onload = function() {
+    document.body.classList.add('no-scroll');
+
     document.getElementById("im1").click();
     setTimeout(function() {
         const header = document.getElementById('header');
@@ -72,8 +74,10 @@ window.onload = function() {
         imgBg.style.height = '20vh';
         imgBg.style.padding = '10px';
         img.style.transform = 'scale(1)';
-    }, 1000); //da cambiare in 1000, cioè 1s 
 
+        // Riabilita lo scrolling
+        document.body.classList.remove('no-scroll');
+    }, 1000); // 1s
 };
 
 
