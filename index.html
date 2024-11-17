@@ -18,12 +18,24 @@
                 <td><img src="logo.jpg" alt="logo" id="logo"></td>
             </tr>
         </table>
+
             <!-- <label class="burger" for="burger">
             <input type="checkbox" id="burger">
             <span></span>
             <span></span>
             <span></span>
-            </label> -->
+            </label>
+
+            <div class="burger-menu" id="burger-menu" onclick="closeMenu()">
+                <table class="burger-table" id="burger-table">
+                    <tr>
+                        <td id="im1-bg" onclick="indexMenu(this.id)">info generali</td>
+                        <td id="im3-bg" onclick="indexMenu(this.id)">chi siamo</td>
+                        <td id="im2-bg" onclick="indexMenu(this.id)">servizi</td>
+                        <td id="im4-bg" onclick="indexMenu(this.id)">certificazioni</td>
+                    </tr>
+                </table>            
+            </div> -->
     </header>
 
     <body>
@@ -35,17 +47,6 @@
                 <td id="im4" onclick="indexMenu(this.id)">certificazioni</td>
             </tr>
         </table>
-
-        <div class="burger-menu" id="burger-menu" onclick="closeMenu()">
-            <table class="burger-table" id="burger-table">
-                <tr>
-                    <td id="im1-bg" onclick="indexMenu(this.id)">info generali</td>
-                    <td id="im3-bg" onclick="indexMenu(this.id)">chi siamo</td>
-                    <td id="im2-bg" onclick="indexMenu(this.id)">servizi</td>
-                    <td id="im4-bg" onclick="indexMenu(this.id)">certificazioni</td>
-                </tr>
-            </table>            
-        </div>
 
         <div id="content-menu" class="fade-in">
 

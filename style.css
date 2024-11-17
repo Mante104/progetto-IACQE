@@ -290,6 +290,9 @@ footer{
     .footer-table td {
         padding: 15px 0;
     }
+    .footer-table tr td br:nth-of-type(1) {
+        display: none;
+    }    
 }
 
 .footer-img {
@@ -560,7 +563,7 @@ footer{
     position: absolute;
     height: 4px;
     width: 100%;
-    background: red;
+    background: var(--temaBianco);
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
@@ -602,5 +605,5 @@ footer{
   }
   
   .burger input:checked ~ #burger-menu {
-    width: 100%; /* Expand to full width */
+    width: 100%;
   }
