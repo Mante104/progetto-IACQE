@@ -76,19 +76,29 @@ window.onload = function() {
     document.body.classList.add('no-scroll');
 
     document.getElementById("im1").click();
-    setTimeout(function() {
+    function adjustHeight() {
         const header = document.getElementById('header');
         const imgBg = document.getElementById('image-bg');
         const img = document.getElementById('logo');
-
-        header.style.height = '20vh';
-        imgBg.style.height = '20vh';
+    
+        let heightValue = window.innerWidth < 800 ? '10vh' : '20vh';
+    
+        header.style.height = heightValue;
+        imgBg.style.height = heightValue;
         imgBg.style.padding = '10px';
         img.style.transform = 'scale(1)';
-
-        // Riabilita lo scrolling
+    }
+    
+    // Initial adjustment
+    setTimeout(adjustHeight, 1000); // 1s
+    
+    // Event listener for window resize
+    window.addEventListener('resize', adjustHeight);
+    
+    // Riabilita lo scrolling
+    setTimeout(() => {
         document.body.classList.remove('no-scroll');
-    }, 1000); // 1s
+    }, 1000);
 
     var map = L.map('map', {
         dragging: false,
@@ -101,6 +111,12 @@ window.onload = function() {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a tabindex="-1" href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+    
+    // Reload map on window resize
+    window.addEventListener('resize', function() {
+        map.invalidateSize();
+    });
+    
 
     var customIcon = L.icon({
         iconUrl: 'marker.png',
@@ -167,23 +183,23 @@ function mes(text, id){
     div.innerHTML = text;
     div.style.display = 'block';
     div.style.opacity = 0;
-    div.style.bottom = "0px";
+    div.style.top = "0px";
     div.style.borderRadius = '10px';
-    div.style.transition = "opacity 0.5s, bottom 0.5s";
+    div.style.transition = "opacity 0.5s, top 0.5s";
 
     setTimeout(() => {
         div.style.opacity = 1;
-        div.style.bottom = "40px";
+        div.style.top = "40px";
     }, 100);
 
     setTimeout(() => {
         div.style.opacity = 0;
-        div.style.bottom = "60px";
+        div.style.top = "60px";
     }, 900);
 
     setTimeout(() => {
         div.style.display = 'none';
-        div.style.bottom = "0px";
+        div.style.top = "0px";
     }, 1400);
 }
 
