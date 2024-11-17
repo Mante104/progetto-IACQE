@@ -8,10 +8,11 @@
 
 :root {
     --tema1: #345383;
-    --tema2: #002649     ;
-    --tema3: #84c1ff;
+    --tema2: #002649;
+    --tema3: #6cbdff;
     --tema4: #87CEEB;
     --tema5: #B2E0FF;
+    --tema6: #005da3;
     --temaBianco: #f0f8ff;
     --temaNero: #000000;
     --temaSep: #47454e;
@@ -206,23 +207,30 @@ header {
 }
 
 footer{
-    background-color: var(--tema2);
+    background-color: var(--tema6);
     width: 100%;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .footer-table {
-    width: 60%; 
+    width: 80%;
     margin-left: auto;
     table-layout: fixed;
     color: var(--temaBianco);
-    padding: 30px 0px;
+    padding: 30px 0;
+    padding-right: 30px;
 }
 .footer-table td {
-    width: 33.33%;
+    width: 20%;
     padding: 10px;
     vertical-align: top;
 }
+.footer-table img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 .intestazione {
     font-weight: bold;
     margin-bottom: 5px;
@@ -248,7 +256,6 @@ footer{
     margin: auto;
     border-top: 1px solid var(--tema3);
     padding: 10px;
-    background-color: var(--tema2);
     text-align: center;
     font-size: 14px;
     color: var(--tema3);
@@ -321,11 +328,11 @@ footer{
     transform-style: preserve-3d;
     transform: rotateY(0deg);
     position: relative;
-    border: 1px solid var(--tema2);
+    border: 1px solid var(--tema6);
 }
 
 .animated {
-    animation: rotateCard 20s linear infinite;
+    animation: rotateCard 17s linear infinite;
 }
 
 .shadow {
@@ -384,7 +391,7 @@ footer{
 .content-container {
     width: 100%;
     padding: 10px;
-    height: 30vh;
+    height: fit-content;
     margin-top: 20px;
     display: flex;
     align-items: center;
@@ -400,14 +407,16 @@ footer{
     border-top: 2px solid var(--tema5);
     border-bottom: 2px solid var(--tema5);
     box-shadow: 
-        0 -4px 6px -4px rgba(0, 0, 0, 0.4), /* Ombra sfocata in alto con meno intensità */
-        0 4px 6px -4px rgba(0, 0, 0, 0.4);  /* Ombra sfocata in basso con meno intensità */
+        0 -4px 6px -4px rgba(0, 0, 0, 0.4),
+        0 4px 6px -4px rgba(0, 0, 0, 0.4),
+        -4px 0 6px -4px rgba(255, 255, 255, 0.4),
+        4px 0 6px -4px rgba(255, 255, 255, 0.4);
 }
 
 .img-container {
     width: 60%;
     margin: auto;
-    padding: 0px 0; /* Padding verticale di 50px */
+    padding-top: 30px; /* Padding verticale di 50px */
     transform: scale(0.8);
 }
 

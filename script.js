@@ -58,7 +58,18 @@ function indexMenu(id) {
     if (targetCell) {
         targetCell.classList.add('show');
     }
+
+    const indexMenuElement = document.querySelector('#index-menu');
+    if (indexMenuElement) {
+        const rect = indexMenuElement.getBoundingClientRect();
+        const isInView = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+        
+        if (!isInView) {
+            scrollTo(0, 0);
+        }
+    }
 }
+
 
 // Esegue il clic iniziale sulla prima immagine al caricamento della pagina
 window.onload = function() {
