@@ -15,27 +15,37 @@
     <header id="header">
         <table class="image-bg" id="image-bg">
             <tr>
-                <td><img src="logo.jpg" alt="logo" id="logo"></td>
+                <td>
+                    <img src="logo.jpg" alt="logo" id="logo">        
+                </td>
+                <td>
+                    <label class="burger" for="burger" onclick="openMenu()">
+                        <input type="checkbox" id="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </label>    
+                </td>
             </tr>
         </table>
 
-            <!-- <label class="burger" for="burger">
-            <input type="checkbox" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-            </label>
-
-            <div class="burger-menu" id="burger-menu" onclick="closeMenu()">
-                <table class="burger-table" id="burger-table">
-                    <tr>
-                        <td id="im1-bg" onclick="indexMenu(this.id)">info generali</td>
-                        <td id="im3-bg" onclick="indexMenu(this.id)">chi siamo</td>
-                        <td id="im2-bg" onclick="indexMenu(this.id)">servizi</td>
-                        <td id="im4-bg" onclick="indexMenu(this.id)">certificazioni</td>
-                    </tr>
-                </table>            
-            </div> -->
+        <div class="burger-menu" id="burger-menu" onclick="closeMenu()">
+            <table class="burger-table" id="burger-table">
+                <tr>
+                    <td id="im1-bg" onclick="indexMenuBg(this.id)">info generali</td>
+                </tr>
+                <tr>
+                    <td id="im3-bg" onclick="indexMenuBg(this.id)">chi siamo</td>
+                </tr>
+                <tr>
+                    <td id="im2-bg" onclick="indexMenuBg(this.id)">servizi</td>
+                </tr>
+                <tr>
+                    <td id="im4-bg" onclick="indexMenuBg(this.id)">certificazioni</td>
+                </tr>
+            </table>                    
+        </div>
+        
     </header>
 
     <body>
@@ -54,27 +64,28 @@
                 <div class="carousel-container">
                     <div class="carousel">
                         <div class="carousel-images">
-                                <img src="esterno basso.jpg" class="active">
-                                <img src="ufficio.jpg">
-                                <img src="quadro 2.jpg">
-                                <img src="officina 2.jpg">
-                            </div>
-                            <div class="carousel-indicators">
-                                <span class="indicator active" data-index="0"></span>
-                                <span class="indicator" data-index="1"></span>
-                                <span class="indicator" data-index="2"></span>
-                                <span class="indicator" data-index="3"></span>
-                            </div>
-                            <!-- Aggiungi le frecce qui -->
-                            <div class="carousel-arrow left-arrow" data-direction="left">❮</div>
-                            <div class="carousel-arrow right-arrow" data-direction="right">❯</div>
-                        </div>                                      
-                    </div>
+                            <img src="esterno basso.jpg" class="active">
+                            <img src="ufficio.jpg">
+                            <img src="quadro 2.jpg">
+                            <img src="officina 2.jpg">
+                        </div>
+                        <div class="carousel-indicators">
+                            <span class="indicator active" data-index="0"></span>
+                            <span class="indicator" data-index="1"></span>
+                            <span class="indicator" data-index="2"></span>
+                            <span class="indicator" data-index="3"></span>
+                        </div>
+                        <!-- Aggiungi le frecce qui -->
+                        <div class="carousel-arrow left-arrow" data-direction="left">❮</div>
+                        <div class="carousel-arrow right-arrow" data-direction="right">❯</div>
+                    </div>                                      
+                </div>
 
 
                 <div class="content-container">
                     <div class="content">
-                        <b>Clicca</b> sul nostro biglietto da visita e scansiona il <b>QR Code</b> così <br> da poter metterti in contatto con un membro del nostro <br> staff per un preventivo
+                        Scansiona il <b>QR Code</b>
+                        per salvare direttamente il <b>numero di telefono</b>.
                     </div>                    
                 </div>
 
@@ -91,7 +102,7 @@
 
                 <div class="content-container">
                     <div class="content">
-                        Una volta prenotato un appuntamento vieni a trovarci per <br> discutere della commissione siamo a <br> <b>Via Lago D'Iseo 31 26900 Lodi LO </b><br> aperti dal Lunedì al Venerdì <br>dalle <b>08:30</b> alle <b>17:00</b>
+                        Noi siamo <b>qui</b>.
                     </div>                    
                 </div>
 
@@ -109,7 +120,7 @@
                         - montaggio ed <b>assemblaggio</b> quadri MT / BT<br>
                         - lavorazione <b>barratura</b> in rame<br>
                         - quadri <b>comando</b> e <b>controllo</b> BT (PCC)<br>
-                        - quadri di <b></b>comando e MCC</b> a cassetti estraibili per impianti navali<br>
+                        - quadri di comando e MCC a cassetti <b>estraibili</b> per impianti navali<br>
                         - quadri <b>distribuzione</b> modulari BT<br>
                         - quadri di <b>automazione</b> con PLC<br>
                         - <b>collaudi funzionali</b><br>
@@ -159,37 +170,31 @@
     <table class="footer-table">
         <tr>
             <td>
-                <img src="logo.jpg">
-            </td>
-            <td>
-
-            </td>
-            <td>
                 <div class="intestazione">Indirizzo</div> <br>
                 <div>
-                    <a href="https://maps.app.goo.gl/5GiWkAWe7yhTX4AD6" target="_blank">Via Lago D'Iseo <br> 31 26900 Lodi LO</a>
+                    <a href="https://maps.app.goo.gl/5GiWkAWe7yhTX4AD6" target="_blank">Via Lado D'Iseo <br> 31 26900 Lodi LO</a>
                 </div>
             </td>
             <td>
                 <div class="intestazione">Contatti</div> <br>
-                Le nostre Mail <br>
-                Lorenzo Cremaschi: <span id="te" onclick="copyText('tecnico@iacqe.com')">tecnico@iacqe.com</span> <br>
-                Paola Cremaschi: <span id="am" onclick="copyText('amministrazione@iacqe.com')">amministrazione@iacqe.com</span> <br>
-                Mail Generale: <span id="in" onclick="copyText('info@iacqe.com')">info@iacqe.com</span> <br>
-                Pec: <span id="ia" onclick="copyText('iacqe@pec.com')">iacqe@pec.com</span> <br>
-                Telefono <br> <span id="Num" onclick="copyText('+39 0371 42 51 47')">+39 0371 42 51 47</span>
+                <b>Le nostre Mail</b> <br> <br>
+                <b>Lorenzo Cremaschi:</b> <span id="te" onclick="copyText('tecnico@iacqe.com')">tecnico@iacqe.com</span> <br>
+                <b>Paola Cremaschi:</b> <span id="am" onclick="copyText('amministrazione@iacqe.com')">amministrazione@iacqe.com</span> <br>
+                <b>Mail Generale:</b> <span id="in" onclick="copyText('info@iacqe.com')">info@iacqe.com</span> <br>
+                <b>Pec:</b> <span id="ia" onclick="copyText('iacqe@pec.com')">iacqe@pec.com</span> <br> <br>
+                <b>Telefono</b> <br> <span id="Num" onclick="copyText('+39 0371 42 51 47')">+39 0371 42 51 47</span>
             </td>
             <td>
                 <div class="intestazione">Orari</div> <br>
                 Lunedì-Venerdì <br>
-                Dalle 8:30 alle 17:00
+                Dalle <b>08:30</b> alle <b>17:00</b>
             </td>
         </tr>
     </table>
 
 
     <div class="separator">
-        I.A.C.Q.E sas |  P.Iva <span id="Piva" onclick="copyText('IT06103110158')">IT06103110158</span>
+        I.A.C.Q.E Company |  P.Iva <span id="Piva" onclick="copyText('IT06103110158')">IT06103110158</span>
     </div>
 </footer>
 

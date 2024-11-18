@@ -1,14 +1,53 @@
-// Gestisce la selezione delle celle nel menu
 document.addEventListener("DOMContentLoaded", function() {
-    const cells = document.querySelectorAll('.index-menu td');
-
-    cells.forEach(cell => {
+    // Per il menu index-menu
+    const indexCells = document.querySelectorAll('.index-menu td');
+    indexCells.forEach(cell => {
         cell.addEventListener('click', () => {
-            cells.forEach(c => c.classList.remove('selected'));
+            // Rimuove la classe "selected" da tutte le celle
+            indexCells.forEach(c => c.classList.remove('selected'));
+
+            // Aggiunge la classe "selected" alla cella cliccata
             cell.classList.add('selected');
+
+            // Trova e aggiorna la controparte "-bg"
+            const bgId = `${cell.id}-bg`;
+            const bgCell = document.getElementById(bgId);
+            if (bgCell) {
+                // Rimuove la classe "active" da tutte le celle "bg"
+                document.querySelectorAll('.burger-table td').forEach(c => c.classList.remove('active'));
+
+                // Aggiunge la classe "active" alla cella "-bg" corrispondente
+                bgCell.classList.add('active');
+            }
+        });
+    });
+
+    // Per il burger-table
+    const burgerCells = document.querySelectorAll('.burger-table td');
+    burgerCells.forEach(cell => {
+        cell.addEventListener('click', () => {
+            // Rimuove la classe "active" da tutte le celle
+            burgerCells.forEach(c => c.classList.remove('active'));
+
+            // Aggiunge la classe "active" alla cella cliccata
+            cell.classList.add('active');
+
+            // Trova e aggiorna la controparte senza "-bg"
+            const normalId = cell.id.replace('-bg', '');
+            const normalCell = document.getElementById(normalId);
+            if (normalCell) {
+                // Rimuove la classe "selected" da tutte le celle "normali"
+                indexCells.forEach(c => c.classList.remove('selected'));
+
+                // Aggiunge la classe "selected" alla cella senza "-bg" corrispondente
+                normalCell.classList.add('selected');
+            }
         });
     });
 });
+
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
@@ -71,6 +110,30 @@ function indexMenu(id) {
 }
 
 
+function indexMenuBg(id) {
+    const cells = document.querySelectorAll('[id$="-content"]');
+
+    cells.forEach(cell => {
+        cell.classList.remove('show');
+    });
+
+    const targetCell = document.querySelector(`#${id.replace('-bg', '')}-content`);
+    if (targetCell) {
+        targetCell.classList.add('show');
+    }
+
+    const burgerMenuElement = document.querySelector('#burger-menu');
+    if (burgerMenuElement) {
+        const rect = burgerMenuElement.getBoundingClientRect();
+        const isInView = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+        
+        if (!isInView) {
+            scrollTo(0, 0);
+        }
+    }
+}
+
+
 // Esegue il clic iniziale sulla prima immagine al caricamento della pagina
 window.onload = function() {
     document.body.classList.add('no-scroll');
@@ -80,6 +143,7 @@ window.onload = function() {
         const header = document.getElementById('header');
         const imgBg = document.getElementById('image-bg');
         const img = document.getElementById('logo');
+        const burger = document.querySelector('.burger');
     
         let heightValue = window.innerWidth < 800 ? '10vh' : '20vh';
     
@@ -87,7 +151,14 @@ window.onload = function() {
         imgBg.style.height = heightValue;
         imgBg.style.padding = '10px';
         img.style.transform = 'scale(1)';
-    }
+    
+        if (burger) {
+            setTimeout(() => {
+                burger.style.transform = 'translateX(0)'; // Anima verso la posizione iniziale
+                burger.style.opacity = '1';
+            }, 600);
+        }
+    }    
     
     // Initial adjustment
     setTimeout(adjustHeight, 1000); // 1s
@@ -264,6 +335,33 @@ function rimuoviBiglietto() {
 }
 
 
+function closeMenu() {
+    const burgerMenu = document.getElementById("burger-menu");
+    const burgerInput = document.getElementById("burger");
+    burgerMenu.style.width = "0";
+    burgerMenu.style.display = "none";
+    burgerMenu.style.opacity = "0";
+    document.body.style.overflow = "auto";
+
+    if(burgerInput.checked){
+        burgerInput.click();
+    }
+}
+
+
+function openMenu() {
+    const burgerMenu = document.getElementById("burger-menu");
+    const burgerInput = document.getElementById("burger");
+
+    if (burgerInput.checked) {
+        burgerMenu.style.width = "100%";
+        burgerMenu.style.display = "block";
+        burgerMenu.style.opacity = "1";
+        document.body.style.overflow = "hidden";
+    } else {
+        closeMenu();
+    }
+}
 
 
 
