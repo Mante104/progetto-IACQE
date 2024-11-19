@@ -358,6 +358,7 @@ function openMenu() {
         burgerMenu.style.display = "block";
         burgerMenu.style.opacity = "1";
         document.body.style.overflow = "hidden";
+        rimuoviBiglietto(document.getElementById('biglietto'))
     } else {
         closeMenu();
     }

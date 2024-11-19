@@ -67,6 +67,8 @@ header {
 }
 
 .image-bg {
+    position: relative;
+    z-index: 100000;
     width: 100%;
     height: 100%;
     padding: 100px;
@@ -108,11 +110,12 @@ header {
     }
 }
 
-@media (max-width: 800px) {
-    #content-menu{
+@media (max-width: 800px), (max-height: 500px) {
+    #content-menu {
         padding-top: 50px;
     }
 }
+
 
 
 .index-menu td {
@@ -491,13 +494,10 @@ footer{
 }
 
 .content {
-    padding: 20px;
     width: 70%;
     margin: auto;
     background-color: transparent;
     text-align: center;
-    border-top: 2px solid var(--tema5);
-    border-bottom: 2px solid var(--tema5);
 }
 
 @media (max-width: 900px) {
@@ -610,7 +610,7 @@ footer{
   
 
 #burger-menu {
-    position: fixed;
+    position: absolute;
     left: 0;
     width: 0;
     height: 100%;
@@ -624,7 +624,6 @@ footer{
 .burger-table{
     width: 100%;
     text-align: right;
-    padding-top: 20px;
 }
 
 .burger-table tr td{
