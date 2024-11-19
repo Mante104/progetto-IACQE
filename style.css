@@ -13,6 +13,7 @@
     --tema4: #87CEEB;
     --tema5: #B2E0FF;
     --tema6: #005da3;
+    --tema7: #7bbdf4;
     --temaBianco: #f0f8ff;
     --temaNero: #000000;
     --temaSep: #47454e;
@@ -484,6 +485,7 @@ footer{
 }
 
 .content-container {
+    margin: auto;
     width: 100%;
     padding: 10px;
     height: fit-content;
@@ -491,6 +493,12 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center; /* Questo centrerà il contenuto anche orizzontalmente */
+}
+
+@media (max-width: 900px) {
+    .content-container {
+        width: 90%;
+    }
 }
 
 .content {
@@ -572,6 +580,7 @@ footer{
     left: 0;
     transform: rotate(0deg);
     transition: .25s ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   }
   
   .burger span:nth-of-type(1) {
@@ -595,6 +604,7 @@ footer{
     transform: rotate(45deg);
     top: 0px;
     left: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
   }
   
   .burger input:checked ~ span:nth-of-type(2) {
@@ -606,6 +616,7 @@ footer{
     transform: rotate(-45deg);
     top: 28px;
     left: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
   }
   
 
@@ -644,5 +655,5 @@ footer{
 
 .active{
     font-weight: bold;
-    background-color: var(--tema3);
+    background-color: var(--tema7);
 }
