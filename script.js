@@ -177,7 +177,7 @@ window.onload = function() {
         scrollWheelZoom: false,
         touchZoom: false,
         doubleClickZoom: false
-    }).setView([45.31036932338235, 9.512629269714429], 17);
+    }).setView([45.31036932338235, 9.512629269714429], 16);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a tabindex="-1" href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
